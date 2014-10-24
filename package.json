@@ -4,7 +4,8 @@
   "description": "Write yeoman generator templates in handlebars",
   "author": "Adam Hull <adam@hmlad.com>",
   "contributors": [
-    "Adam Hull <adam@hmlad.com>"
+    "Adam Hull <adam@hmlad.com>",
+    "Michael Wolbert <michael.wolbert@gmail.com>"
   ],
   "main": "handlebars_engine.js",
   "keywords": [
@@ -20,16 +21,15 @@
   "homepage": "https://github.com/hurrymaplelad/yeoman-handlebars-engine",
   "bugs": "https://github.com/hurrymaplelad/yeoman-handlebars-engine/issues",
   "dependencies": {
-    "underscore.string": "^2.3.3"
-  },
-  "peerDependencies": {
-    "handlebars": "^1.3.0"
+    "underscore.string": "^2.3.3",
+    "handlebars": "^2.0.0",
+    "handlebars-delimiters": "^0.1.0"
   },
   "devDependencies": {
     "coffee-script": ">=1.7.x",
     "mocha": "~1.x.x",
-    "handlebars": "^1.3.0",
-    "yeoman-generator": "^0.16.0"
+    "handlebars": "^2.0.0",
+    "yeoman-generator": "^0.17.0"
   },
   "scripts": {
     "test": "mocha"

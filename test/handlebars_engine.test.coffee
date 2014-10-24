@@ -9,18 +9,17 @@ describe 'yeoman-handlebars-engine', ->
     describe 'given a handlebars template string', ->
       template = 'Beep {{ sound }}'
       it 'returns true', ->
-        assert handlebarsEngine.detect(template)
+        assert handlebarsEngine().detect(template)
 
     describe 'given a template with no substitutions', ->
       template = 'Beep boop'
       it 'returns false', ->
-        assert not handlebarsEngine.detect(template)
+        assert not handlebarsEngine().detect(template)
 
     describe 'assigned as the engine of a generator', ->
       path = require 'path'
       class StubGenerator extends yeoman.generators.Base
         constructor: (args, options, config) ->
-          options.engine = handlebarsEngine
           super
           @sourceRoot path.join __dirname, 'fixtures'
 
@@ -32,8 +31,9 @@ describe 'yeoman-handlebars-engine', ->
         helpers.testDirectory path.join(__dirname, './output/'), (err) =>
           return done(err) if err
 
-          @app = helpers.createGenerator('stub', [[StubGenerator, 'stub']])
-          @app.run {}, -> done()
+          helpers
+            .createGenerator('stub', [[StubGenerator, 'stub']], [], {engine: handlebarsEngine()})
+            .run {}, -> done()
 
       it 'evaluates substitutions in generated templates', ->
         assert.fileContent '__README.md', /Beep boop/
