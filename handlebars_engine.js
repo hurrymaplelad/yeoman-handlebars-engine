@@ -1,5 +1,4 @@
 var Handlebars = require('handlebars'),
-  handlebarsDelimiters = require('handlebars-delimiters'),
   fs = require('fs');
 
 module.exports = function(options) {
