@@ -30,7 +30,6 @@ module.exports = function(options) {
   var registerPartials = function (partialsPath) {
     fs.readdirSync(partialsPath).forEach(function (p) {
       var template = fs.readFileSync(partialsPath + p, 'utf-8');
-      console.log(partialsPath + p);
       Handlebars.registerPartial(p, template);
     });
   };
