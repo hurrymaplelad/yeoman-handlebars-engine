@@ -17,10 +17,10 @@ class RobotGenerator extends yeoman.generators.Base
     super
 ```
 
-Settings Handlebar delimiters (default to '{{' and '}}'):
+Settings directory where Handlebar partials reside:
 ```coffee
 handlebarsEngine = require 'yeoman-handlebars-engine'
-theEngine = handlebarsEngine('<%=', '%>')
+theEngine = handlebarsEngine {options: {partials: 'partials/'}}
 ```
 
 Using Underscore.string helpers in your generator templates:
@@ -42,3 +42,11 @@ My class: RobotGenerator
 Big number: 123,456,789.12300
 
 ```
+
+
+Changelog
+---------
+
+#### v1.0
+
+Breaking change: Export a function that configures Handlebars and returns an engine, instead of exporting the engine directly.
