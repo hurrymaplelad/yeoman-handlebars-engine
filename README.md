@@ -17,10 +17,16 @@ class RobotGenerator extends yeoman.generators.Base
     super
 ```
 
-Settings directory where Handlebar partials reside:
+Setting custom helpers:
 ```coffee
 handlebarsEngine = require 'yeoman-handlebars-engine'
-theEngine = handlebarsEngine {options: {partials: 'partials/'}}
+theEngine = handlebarsEngine {fns: {toLowerCase: (str) -> str.toLowerCase()}}
+```
+
+Setting directory where Handlebar partials reside:
+```coffee
+handlebarsEngine = require 'yeoman-handlebars-engine'
+theEngine = handlebarsEngine {partials: 'partials/'}
 ```
 
 Using Underscore.string helpers in your generator templates:
