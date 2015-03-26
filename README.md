@@ -1,6 +1,8 @@
 yeoman-handlebars-engine
 ==============
 
+[**Deprecated**](https://github.com/yeoman/generator/commit/566ab3307bb16cadd010fc6689708b68d56608e7#commitcomment-10404447)
+
 Write Yeoman generator templates in Handlebars with Underscore.string helpers.
 
 [![NPM version](https://badge.fury.io/js/yeoman-handlebars-engine.png)](http://badge.fury.io/js/yeoman-handlebars-engine) [![Build Status](https://travis-ci.org/hurrymaplelad/yeoman-handlebars-engine.png)](https://travis-ci.org/hurrymaplelad/yeoman-handlebars-engine)
