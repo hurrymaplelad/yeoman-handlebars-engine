@@ -12,23 +12,20 @@ Object.keys(_).forEach(function(helper) {
 		});
 });
 
-var engine = module.exports = function (beginDelimiter, endDelimiter) {
+module.exports = function (beginDelimiter, endDelimiter) {
   var me = this;
+  beginDelimiter = beginDelimiter || '{{';
+  endDelimiter = endDelimiter || '}}';
+  handlebarsDelimiters(Handlebars, [beginDelimiter, endDelimiter]);
 
-  this.setDelimiter = function(beginDelimiter, endDelimiter) {
-    me._beginDelimiter = beginDelimiter || '{{';
-    me._endDelimiter = endDelimiter || '}}';
-    handlebarsDelimiters(Handlebars, [me._beginDelimiter, me._endDelimiter]);
-    return me.engine;
-  };
-
-  this.engine = function (source, data) {
+  var engine = function (source, data) {
+    if (!engine.detect(source)) return source;
     return Handlebars.compile(source)(data);
   };
 
-  this.engine.detect = function(body) {
-    return body.indexOf(me._beginDelimiter) > -1;
+  engine.detect = function(body) {
+    return body && body.indexOf(beginDelimiter) > -1;
 	};
 
-  return this.setDelimiter(beginDelimiter, endDelimiter);
+  return engine;
 };

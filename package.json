@@ -27,9 +27,9 @@
   },
   "devDependencies": {
     "coffee-script": ">=1.7.x",
-    "mocha": "~1.x.x",
     "handlebars": "^2.0.0",
-    "yeoman-generator": "^0.17.0"
+    "mocha": "~1.x.x",
+    "yeoman-generator": "^0.18.10"
   },
   "scripts": {
     "test": "mocha"
